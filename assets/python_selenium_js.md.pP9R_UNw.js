@@ -1,0 +1,27 @@
+import{G as e,K as t,at as n,n as r}from"./chunks/framework.CZI4dhmU.js";var i=JSON.parse(`{"title":"js","description":"","frontmatter":{},"headers":[],"relativePath":"python/selenium/js.md","filePath":"python/selenium/js.md"}`),a={name:`python/selenium/js.md`};function o(r,i,a,o,s,c){return n(),e(`div`,null,[...i[0]||=[t(`<h1 id="js" tabindex="-1">js <a class="header-anchor" href="#js" aria-label="Permalink to “js”">​</a></h1><ul><li>在页面执行 js 代码，例如滚动加载</li></ul><h2 id="执行-js-代码" tabindex="-1">执行 js 代码 <a class="header-anchor" href="#执行-js-代码" aria-label="Permalink to “执行 js 代码”">​</a></h2><div class="language-python" dir="ltr"><button title="Copy code" data-copied="Copied" class="copy"></button><span class="lang">python</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span style="--shiki-light:#c62739;--shiki-dark:#F97583;">from</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> selenium </span><span style="--shiki-light:#c62739;--shiki-dark:#F97583;">import</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> webdriver</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#62687b;--shiki-dark:#818e99;"># 创建浏览器对象</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">driver </span><span style="--shiki-light:#c62739;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> webdriver.Chrome()</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#62687b;--shiki-dark:#818e99;"># 浏览器打开网页</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">driver.get(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;https://www.baidu.com&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#62687b;--shiki-dark:#818e99;"># 执行js代码</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">driver.execute_script(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&#39;alert(&quot;hello world&quot;)&#39;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#62687b;--shiki-dark:#818e99;"># 执行js代码，返回结果</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">result </span><span style="--shiki-light:#c62739;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> driver.execute_script(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&#39;return 1 + 2&#39;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(result)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#62687b;--shiki-dark:#818e99;"># 执行js代码，返回元素</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">element </span><span style="--shiki-light:#c62739;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> driver.execute_script(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&#39;return document.getElementById(&quot;kw&quot;)&#39;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(element)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#62687b;--shiki-dark:#818e99;"># 执行js代码，操作元素</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">driver.execute_script(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&#39;arguments[0].value = &quot;python&quot;&#39;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, element)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#62687b;--shiki-dark:#818e99;"># 执行js代码，操作元素</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">driver.execute_script(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&#39;arguments[0].click()&#39;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, element)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#62687b;--shiki-dark:#818e99;"># 执行js代码，操作元素</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">driver.execute_script(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&#39;arguments[0].scrollIntoView()&#39;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, element)</span></span></code></pre></div>`,4)]])}var s=r(a,[[`render`,o]]);export{i as __pageData,s as default};

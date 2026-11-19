@@ -1,0 +1,1 @@
+import{G as e,at as t,n}from"./chunks/framework.CZI4dhmU.js";var r=JSON.parse(`{"title":"","description":"","frontmatter":{"layout":"home"},"headers":[],"relativePath":"index.md","filePath":"index.md"}`),i={name:`index.md`};function a(n,r,i,a,o,s){return t(),e(`div`)}var o=n(i,[[`render`,a]]);export{r as __pageData,o as default};

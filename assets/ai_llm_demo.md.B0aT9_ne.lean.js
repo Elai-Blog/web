@@ -1,0 +1,1 @@
+import{G as e,K as t,at as n,n as r}from"./chunks/framework.CZI4dhmU.js";var i=JSON.parse(`{"title":"示例","description":"","frontmatter":{},"headers":[],"relativePath":"ai/llm/demo.md","filePath":"ai/llm/demo.md"}`),a={name:`ai/llm/demo.md`};function o(r,i,a,o,s,c){return n(),e(`div`,null,[...i[0]||=[t("",18)]])}var s=r(a,[[`render`,o]]);export{i as __pageData,s as default};

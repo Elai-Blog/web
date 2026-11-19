@@ -1,0 +1,1 @@
+import{G as e,K as t,at as n,n as r}from"./chunks/framework.CZI4dhmU.js";var i=JSON.parse(`{"title":"单元测试","description":"","frontmatter":{},"headers":[],"relativePath":"go/test/unit.md","filePath":"go/test/unit.md"}`),a={name:`go/test/unit.md`};function o(r,i,a,o,s,c){return n(),e(`div`,null,[...i[0]||=[t("",13)]])}var s=r(a,[[`render`,o]]);export{i as __pageData,s as default};

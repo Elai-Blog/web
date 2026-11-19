@@ -1,0 +1,131 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="llm_workflow" name="大模型落地决策流程">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- 步骤1 准备测试数据 -->
+        <mxCell id="s1" value="准备测试数据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d8f0f3;strokeColor=#333;fontSize=20;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="60" width="220" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- 步骤2 用对话应用验证可行性 -->
+        <mxCell id="s2" value="用对话应用&#10;验证可行性" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d8f0f3;strokeColor=#333;fontSize=20;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="60" width="220" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- 判断1 是否要补充知识? -->
+        <mxCell id="d1" value="是否要补充知识?" style="shape=diamond;whiteSpace=wrap;html=1;fillColor=#f4d4ce;strokeColor=#333;fontSize=20;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="40" width="240" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- RAG 矩形 -->
+        <mxCell id="rag" value="RAG" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff6cc;strokeColor=#333;fontSize=22;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="830" y="60" width="180" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- 判断2 要对接其它系统? -->
+        <mxCell id="d2" value="要对接其它系统?" style="shape=diamond;whiteSpace=wrap;html=1;fillColor=#f4d4ce;strokeColor=#333;fontSize=20;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="240" width="240" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Function Calling -->
+        <mxCell id="fc" value="Function&#10;Calling" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff6cc;strokeColor=#333;fontSize=20;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="830" y="240" width="180" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- 判断3 值得尝试微调? -->
+        <mxCell id="d3" value="值得尝试微调?" style="shape=diamond;whiteSpace=wrap;html=1;fillColor=#f4d4ce;strokeColor=#333;fontSize=20;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="440" width="240" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Fine-tuning -->
+        <mxCell id="ft" value="用历史数据做&#10;Fine-tuning" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff6cc;strokeColor=#333;fontSize=20;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="830" y="440" width="180" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- 交付 椭圆 -->
+        <mxCell id="end" value="交付" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#d8efd2;strokeColor=#333;fontSize=22;sketch=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="640" width="200" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- 连线 s1 -> s2 -->
+        <mxCell id="e1" value="" style="endArrow=block;html=1;strokeColor=#82d0d8;strokeWidth=3;sketch=1;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- s2 -> d1 -->
+        <mxCell id="e2" value="" style="endArrow=block;html=1;strokeColor=#82d0d8;strokeWidth=3;sketch=1;" edge="1" parent="1" source="s2" target="d1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- d1 是 → RAG -->
+        <mxCell id="e3" value="是" style="endArrow=block;html=1;strokeColor=#f2d288;strokeWidth=3;sketch=1;" edge="1" parent="1" source="d1" target="rag">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="110" as="sourcePoint"/>
+            <mxPoint x="830" y="110" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <!-- d1 否 → d2 -->
+        <mxCell id="e4" value="否" style="endArrow=block;html=1;strokeColor=#e8b2b2;strokeWidth=3;sketch=1;" edge="1" parent="1" source="d1" target="d2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="180" as="sourcePoint"/>
+            <mxPoint x="670" y="240" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <!-- RAG 返回箭头到 d2 -->
+        <mxCell id="e5" value="" style="endArrow=block;html=1;strokeColor=#f2d288;strokeWidth=3;sketch=1;" edge="1" parent="1" source="rag" target="d2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="920" y="160" as="sourcePoint"/>
+            <mxPoint x="790" y="290" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- d2 是 → FC -->
+        <mxCell id="e6" value="是" style="endArrow=block;html=1;strokeColor=#f2d288;strokeWidth=3;sketch=1;" edge="1" parent="1" source="d2" target="fc">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="310" as="sourcePoint"/>
+            <mxPoint x="830" y="310" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <!-- d2 否 → d3 -->
+        <mxCell id="e7" value="否" style="endArrow=block;html=1;strokeColor=#e8b2b2;strokeWidth=3;sketch=1;" edge="1" parent="1" source="d2" target="d3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="380" as="sourcePoint"/>
+            <mxPoint x="670" y="440" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <!-- FC 返回箭头到 d3 -->
+        <mxCell id="e8" value="" style="endArrow=block;html=1;strokeColor=#f2d288;strokeWidth=3;sketch=1;" edge="1" parent="1" source="fc" target="d3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="920" y="340" as="sourcePoint"/>
+            <mxPoint x="790" y="490" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- d3 是 → FT -->
+        <mxCell id="e9" value="是" style="endArrow=block;html=1;strokeColor=#f2d288;strokeWidth=3;sketch=1;" edge="1" parent="1" source="d3" target="ft">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="510" as="sourcePoint"/>
+            <mxPoint x="830" y="510" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <!-- d3 否 → end交付 -->
+        <mxCell id="e10" value="否" style="endArrow=block;html=1;strokeColor=#e8b2b2;strokeWidth=3;sketch=1;" edge="1" parent="1" source="d3" target="end">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="580" as="sourcePoint"/>
+            <mxPoint x="670" y="640" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <!-- FT 返回箭头到 end交付 -->
+        <mxCell id="e11" value="" style="endArrow=block;html=1;strokeColor=#f2d288;strokeWidth=3;sketch=1;" edge="1" parent="1" source="ft" target="end">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="920" y="540" as="sourcePoint"/>
+            <mxPoint x="790" y="690" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
